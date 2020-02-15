@@ -1,0 +1,41 @@
+.slider {
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: #4fbfa8;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+    .articlexd {
+      background-color:#fff;
+      padding:10px;
+      position: relative;
+      display: inline-block;
+      width: 65%;
+      margin-right: 2%;
+      vertical-align: top;
+    }
+    .imagedoctor{
+      max-width: 100%;
+      height: auto;
+    }
+    .get-it2 {
+	  background: #205081;
+	  color: #fff;
+	  margin-top:70px;
+	  padding: 50px 0;
+	}
+    

@@ -61,10 +61,6 @@ public class EstaticasController {
 	public String ateemp(Model model){
 		return "atencion-empresas";
 	}
-	@GetMapping(value="/comunidad-bemedica")
-	public String comubeme(Model model){
-		return "comunidad-bemedica";
-	}
 
 	@GetMapping(value="/servicios")
 	public String servicios(Model model){
