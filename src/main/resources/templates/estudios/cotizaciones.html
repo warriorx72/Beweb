@@ -162,7 +162,7 @@
                         <option value="Paquetes">Paquetes</option>
                     </select>
                     <input type="text" placeholder="Buscar estudio" id="buscar" class="form-control"><span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
                 </div>
         </div>
         <div class="row bar" style="padding-bottom:0px; padding-top: 0px;">
@@ -174,7 +174,8 @@
                                 <tr>
                                     <th style="width:70%">Estudio</th>
                                     <th style="width:5%">Precio</th>
-                                    <th style="width:20%">Tipo</th>
+                                    <th style="width:15%">Tipo</th>
+                                    <th style="width:5%"></th>
                                     <th style="width:5%"></th>
                                 </tr>
                                 </thead>
@@ -186,14 +187,15 @@
                                 <tr th:each="cotizacion: ${cotizaciones}" th:id="${cotizacion[0]}+ '_' + ${cotizacion[8]}" th:class="'TIPO_' + ${cotizacion[3]}" th:unless="${cotizacion[3] == 'Antibiogramas'}">
                                     <td style="width:70%" th:text="${cotizacion[1]}" ></td>
 	                                <td style="width:5%" th:text="${cotizacion[9]}" ></td>
-	                                <td style="width:20%" th:text="${cotizacion[3]}" ></td>
+	                                <td style="width:15%" th:text="${cotizacion[3]}" ></td>
 	                                <!--  td th:text="${cotizacion[3]}" ><input type="text" th:text="${cotizacion[3]}"  style="outline: none;border: 0;" disabled></td-->
 	                                <input type="hidden" th:id="'N_' + ${cotizacion[8]}" th:value="${cotizacion[1]}">
 									<input type="hidden" th:id="'P_' + ${cotizacion[8]}" th:value="${cotizacion[9]}">
 									<input type="hidden" th:id="'T_' + ${cotizacion[8]}" th:value="${cotizacion[3]}">
 									<input type="hidden" th:id="'I_' + ${cotizacion[8]}" th:value="${cotizacion[0]}">
 									<input type="hidden" th:id="'INFO_' + ${cotizacion[8]}" th:value="${cotizacion[10]}">
-	                                <td style="width:5%" ><a th:attr="onclick=|listarEstudio('${cotizacion[8]}')|"><i class="fa fa-plus"></i></a>
+									<td style="width:5%" ><button type="button" class="btn btn-warning" data-html="true" data-toggle="popover" data-trigger="hover" data-placement="left" title="Indicaciones" th:data-content="${cotizacion[10]}"><i class="fa fa-question"></i></button></td>
+	                                <td style="width:5%" ><a th:attr="onclick=|listarEstudio('${cotizacion[8]}')|"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -220,7 +222,7 @@
                 <div class="box box mt-0 mb-4 p-0">
                         <div class="input-group">
                             <input type="text" id="email_envio" class="form-control" placeholder="bemedica@email.com"><span class="input-group-btn">
-                                <button type="submit" onclick="Guardar()" class="btn btn-template-main"><i class="fa fa-arrow-right"></i></button></span>
+                                <button type="submit" onclick="Guardar()" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button></span>
                         </div>
                 </div>
             </div>
@@ -383,6 +385,11 @@ var envio2 = "INICIO";
     }
 
     busqueda.addEventListener('keyup', buscaTabla);
+</script>
+<script>
+$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
 </script>
 </body>
 </html>

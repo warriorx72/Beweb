@@ -19,7 +19,7 @@ function listarEstudio(id)
     $('#' + txt + '_' + id).hide();
 
     //Y lo pega del otro lado.
-    $("#listado").append('<tr id="' + txt + '_NUEVO_' + id +  '"><td style="width:70%">'+nom+'</td><td style="width:5%">$'+pre+'.00</td><td style="width:20%"><input id="CANTIDAD_' + txt + '"  onchange="CambiarCantidad(\'' + id + '\')" type="number" value="1" class="form-control"></td><td style="width:5%"><i class="fa fa-trash-o" onclick="QuitarEstudio(\'' + id + '\')"></i></td></tr>');
+    $("#listado").append('<tr id="' + txt + '_NUEVO_' + id +  '"><td style="width:70%">'+nom+'</td><td style="width:5%">$'+pre+'.00</td><td style="width:20%"><input id="CANTIDAD_' + txt + '"  onchange="CambiarCantidad(\'' + id + '\')" type="number" value="1" class="form-control"></td><td style="width:5%"><button type="button" class="btn btn-danger" onclick="QuitarEstudio(\'' + id + '\')"><i class="fa fa-trash-o"></i></button></td></tr>');
 }
 
 function QuitarEstudio(id)

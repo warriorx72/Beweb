@@ -11,6 +11,7 @@ import com.bemedica.springboot.app.service.ComunidadService;
 @Controller
 public class ComunidadController {
 	
+	
 	@Autowired
 	private ComunidadService com;
 	
