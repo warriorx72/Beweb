@@ -43,7 +43,7 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
-                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Iniciar sesi&oacute;n</span></a>&nbsp;<a href="customer-register.html" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrarse</span></a></div>
+                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Iniciar sesi&oacute;n</span></a>&nbsp;<a href="" data-toggle="modal" data-target="#register-modal" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrarse</span></a></div>
                 <ul class="social-custom list-inline">
                   <li class="list-inline-item"><a target="_blank" href="https://api.whatsapp.com/send?phone=5215573764839&text=Hola%2c%20BeMedica&source=&data="><i class="fa fa-whatsapp"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -60,28 +60,63 @@
         <div role="document" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">Customer Login</h4>
+              <h4 id="login-modalLabel" class="modal-title">Iniciar Sesi&oacute;n</h4>
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="customer-orders.html" method="get">
-                <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="password" class="form-control">
-                </div>
-                <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
-                </p>
-              </form>
-              <p class="text-center text-muted">Not registered yet?</p>
-              <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-            </div>
+            	<form action="customer-orders.html" method="get">
+                	<div class="form-group">
+                   		<input id="email_modal" type="text" placeholder="Correo electr&oacute;nico" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="password_modal" type="password" placeholder="Contrase&ntilde;a" class="form-control">
+                    </div>
+                    <p class="text-center">
+                       <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Iniciar sesi&oacute;n</button>
+                    </p>
+            	</form>
+			</div>
           </div>
         </div>
       </div>
       <!-- Login modal end-->
+      <!-- Registro Modal-->
+      <div id="register-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="login-modalLabel" class="modal-title">Registrarse</h4>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+            	<form action="customer-orders.html" method="get">
+            		<div class="form-group">
+                   		<input id="email_modal" required type="text" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                   		<input id="email_modal" required type="text" placeholder="Apellido Paterno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                   		<input id="email_modal" required type="text" placeholder="Apellido Materno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                   		<input id="email_modal" required type="text" placeholder="Usuario" class="form-control">
+                    </div>
+                	<div class="form-group">
+                   		<input id="email_modal" required type="email" placeholder="Correo electr&oacute;nico" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input id="password_modal" required type="password" placeholder="Contrase&ntilde;a" class="form-control">
+                    </div>
+                    <p class="text-center">
+                       <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Registrarse</button>
+                    </p>
+            	</form>
+			</div>
+          </div>
+        </div>
+      </div>
+      <!-- Registro modal end-->
       <!-- Navbar Start-->
      <header class="nav-holder make-sticky">
         <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
