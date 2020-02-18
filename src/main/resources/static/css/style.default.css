@@ -882,9 +882,20 @@ header.nav-holder.sticky {
   border-radius: 0 !important;
   text-decoration: none;
 }
+.btn-template-outlined1 {
+  background: none;
+  border: 1px solid #205081 !important;
+  color: #205081;
+  border-radius: 0 !important;
+  text-decoration: none;
+}
 
 .btn-template-outlined:hover, .btn-template-outlined:focus {
   background: #1eb7bd;
+  color: #fff !important;
+}
+.btn-template-outlined1:hover, .btn-template-outlined1:focus {
+  background: #205081;
   color: #fff !important;
 }
 
@@ -2012,6 +2023,10 @@ table tr td {
 
 .nav-pills .nav-link.active {
   background: #4fbfa8;
+}
+.nav-pills1 .nav-link.active {
+  background: #205081;
+  color:#ffffff;
 }
 
 .panel {
