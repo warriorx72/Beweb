@@ -1,0 +1,25 @@
+      <!-- Login Modal-->
+      <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="login-modalLabel" class="modal-title">Iniciar Sesi&oacute;n</h4>
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+            	<form th:action="@{/login}" method="post">
+                	<div class="form-group">
+                   		<input name="username" type="text" placeholder="Correo electr&oacute;nico" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" type="password" placeholder="Contrase&ntilde;a" class="form-control">
+                    </div>
+                    <p class="text-center">
+                       <button type="submit" class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Iniciar sesi&oacute;n</button>
+                    </p>
+            	</form>
+			</div>
+          </div>
+        </div>
+      </div>
+      <!-- Login modal end-->

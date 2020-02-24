@@ -1,0 +1,46 @@
+<div class="top-bar">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-6 d-md-block d-none">
+              <p><i class="fa fa-phone"></i> +420 777 555 333</p>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex justify-content-md-end justify-content-between"> 
+                <ul class="list-inline contact-info d-block d-md-none">
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+                <div class="login">
+                <!-- leyenda Iniciar Sesion -->  <!-- la etiqueta unless es una condicion "mientra que": en este caso una variable de inicio de session que se recibe de acuerdo al controllerUser -->
+                	<a th:unless="${user.getUserName() != 'No_Session'}"   href="#" data-toggle="modal" data-target="#login-modal" class="login-btn">
+                		<i class="fa fa-sign-in"></i>
+                			<span class="d-none d-md-inline-block">
+                				Iniciar sesi&oacute;n
+                			</span>
+                	</a>&nbsp;	<!-- hace referencia al usuario registrado -->
+                	<a th:unless="${user.getUserName() == 'No_Session'}"   href="#" data-toggle="modal" data-target="#login-modal" class="login-btn">
+                		<i class="fa fa-user"></i>
+                			<span class="d-none d-md-inline-block" th:text="${user.getUserNombre()}">
+                				
+                			</span>
+                	</a>&nbsp;	
+                	<a th:unless="${user.getUserName() == 'No_Session'}" th:href="@{/logout}"  class="signup-btn">
+                		<i class="fa fa-window-close"></i>
+                			<span class="d-none d-md-inline-block">
+                				Cerrar sesi&oacute;n
+                				</span>
+                	</a>
+                	<!--<p th:unless="${user.getUserName() == 'No_Session'}" th:text="${user.getUserNombre()}"></p>-->
+                	<!-- cierra leyenda Iniciar Sesion -->
+                	</div>
+                <ul class="social-custom list-inline">
+                  <li class="list-inline-item"><a target="_blank" href="https://api.whatsapp.com/send?phone=5215573764839&text=Hola%2c%20BeMedica&source=&data="><i class="fa fa-whatsapp"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
