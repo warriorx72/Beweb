@@ -31,132 +31,21 @@
 <body>
 <div id="all">
     <!-- Top bar-->
-      <div class="top-bar">
-        <div class="container">
-          <div class="row d-flex align-items-center">
-            <div class="col-md-6 d-md-block d-none">
-              <p><i class="fa fa-phone"></i> +420 777 555 333</p>
-            </div>
-            <div class="col-md-6">
-              <div class="d-flex justify-content-md-end justify-content-between">
-                <ul class="list-inline contact-info d-block d-md-none">
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Iniciar sesi&oacute;n</span></a>&nbsp;<a href="" data-toggle="modal" data-target="#register-modal" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrarse</span></a></div>
-                <ul class="social-custom list-inline">
-                  <li class="list-inline-item"><a target="_blank" href="https://api.whatsapp.com/send?phone=5215573764839&text=Hola%2c%20BeMedica&source=&data="><i class="fa fa-whatsapp"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+       <div th:include="nav.html" th:remove="tag">
+      
       </div>
       <!-- Top bar end-->
-      <!-- Login Modal-->
-      <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">Iniciar Sesi&oacute;n</h4>
-              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-            </div>
-            <div class="modal-body">
-            	<form action="customer-orders.html" method="get">
-                	<div class="form-group">
-                   		<input id="email_modal" type="text" placeholder="Correo electr&oacute;nico" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input id="password_modal" type="password" placeholder="Contrase&ntilde;a" class="form-control">
-                    </div>
-                    <p class="text-center">
-                       <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Iniciar sesi&oacute;n</button>
-                    </p>
-            	</form>
-			</div>
-          </div>
-        </div>
+      <!-- Top bar-->
+      <div th:include="modal-inicio-sesion.html" th:remove="tag">
+      
       </div>
-      <!-- Login modal end-->
-      <!-- Registro Modal-->
-      <div id="register-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">Registrarse</h4>
-              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-            </div>
-            <div class="modal-body">
-            	<form action="customer-orders.html" method="get">
-            		<div class="form-group">
-                   		<input id="email_modal" required type="text" placeholder="Nombre" class="form-control">
-                    </div>
-                    <div class="form-group">
-                   		<input id="email_modal" required type="text" placeholder="Apellido Paterno" class="form-control">
-                    </div>
-                    <div class="form-group">
-                   		<input id="email_modal" required type="text" placeholder="Apellido Materno" class="form-control">
-                    </div>
-                    <div class="form-group">
-                   		<input id="email_modal" required type="text" placeholder="Usuario" class="form-control">
-                    </div>
-                	<div class="form-group">
-                   		<input id="email_modal" required type="email" placeholder="Correo electr&oacute;nico" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input id="password_modal" required type="password" placeholder="Contrase&ntilde;a" class="form-control">
-                    </div>
-                    <p class="text-center">
-                       <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Registrarse</button>
-                    </p>
-            	</form>
-			</div>
-          </div>
-        </div>
+      <!-- Top bar end-->
+     <!-- Top bar-->
+      <div th:include="header.html" th:remove="tag">
+      
       </div>
-      <!-- Registro modal end-->
-    <!-- Navbar Start-->
-    <header class="nav-holder make-sticky">
-        <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
-          <div class="container"><a th:href="@{/}" class="navbar-brand home"><img src="img/logo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"/><span class="sr-only">Universal - go to homepage</span></a>
-            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
-            <div id="navigation" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Nosotros <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a th:href="@{/acerca-de-nosotros}" class="nav-link">¿Qui&eacute;nes somos?</a></li>
-                    <li class="dropdown-item"><a th:href="@{/politica-de-calidad}" class="nav-link">Pol&iacute;tica de calidad</a></li>
-                    <!--  li class="dropdown-item"><a th:href="@{/certificaciones}" class="nav-link">Certificaciones</a></li-->
-                    <li class="dropdown-item"><a th:href="@{/bolsa-de-trabajo}" class="nav-link">Bolsa de trabajo</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/servicios}">Servicios<b class="caret"></b></a></li>
-                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Estudios <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a th:href="@{/estudios/informacion}" class="nav-link">Informaci&oacute;n</a></li>
-                    <li class="dropdown-item"><a th:href="@{/estudios/cotizaciones}" class="nav-link">Cotizaciones</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/pacientes}">Pacientes<b class="caret"></b></a></li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/atencion-empresas}">Atenci&oacute;n a empresas<b class="caret"></b></a></li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/comunidad-bemedica}">Comunidad BeM&eacute;dica<b class="caret"></b></a></li>
-                <li class="nav-item dropdown menu-large active"><a th:href="@{/contacto}">Contacto<b class="caret"></b></a></li>
-              </ul>
-            </div>
-            <div id="search" class="collapse clearfix">
-              <form role="search" class="navbar-form">
-                <div class="input-group">
-                  <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </header>
-    <!-- Navbar End-->
+      <!-- Top bar end-->
+    
     <div id="heading-breadcrumbs" class="brder-top-0 border-bottom-0">
         <div class="container">
             <div class="row d-flex align-items-center flex-wrap">
