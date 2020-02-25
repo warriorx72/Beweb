@@ -3,6 +3,8 @@ package com.bemedica.springboot.app.controllers;
 
 import org.thymeleaf.context.Context;
 
+import java.awt.Color;
+
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +14,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bemedica.springboot.app.component.EmailHtmlSender;
 import com.bemedica.springboot.app.component.EmailStatus;
+import com.bemedica.springboot.app.controllers.TableTemplate;
+import com.lowagie.text.Font;
 
 @Controller
 public class CorreoController {
 	@Autowired
     private EmailHtmlSender emailHtmlSender;
+	
+	private static Font catFont = new Font(Font.TIMES_ROMAN, 18, Font.BOLD);
+    
+    private static Font redFont = new Font(Font.TIMES_ROMAN, 12, Font.NORMAL, Color.RED);
+    
+    private static Font subFont = new Font(Font.TIMES_ROMAN, 16, Font.BOLD);
+    
+    private static Font smallBold = new Font(Font.TIMES_ROMAN, 12, Font.BOLD);
 	
 	@RequestMapping(value = "/enviar_cotizacion", method=RequestMethod.POST)
     public String sendmail(@RequestParam(value = "data") String jsonStr, @RequestParam(value = "correo") String correo, @RequestParam(value = "monto") int monto
@@ -54,10 +66,30 @@ public class CorreoController {
 	    context.setVariable("nombre", nombre);
 	    context.setVariable("precio", precio);
 	    context.setVariable("indicaciones", indicaciones);
-         
+        
+	  //Se bautiza el archivo jsjs
+	    String DEST = "c:/temp/CotizacionDeEstudios.pdf";
+	    
+	    PDFMain(jsonArray, monto, DEST);
+	    
         EmailStatus emailStatus = emailHtmlSender.send(correo, "Cotización de estudios", "email/enviar", context);
         
         return "index";
 
     }
+	public String PDFMain(JSONArray jsonArray, int monto, String DEST) 
+	{	
+		try 
+		{
+			TableTemplate tt = new TableTemplate();
+			tt.createPdf(jsonArray, monto, DEST);
+        } 
+		catch (Exception e) 
+		{
+            e.printStackTrace();
+        }
+		
+		
+		return "index";
+	}
 }

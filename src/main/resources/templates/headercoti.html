@@ -1,0 +1,42 @@
+<!-- Navbar Start-->
+      <header class="nav-holder make-sticky">
+        <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
+          <div class="container"><a th:href="@{/}" class="navbar-brand home"><img src="../img/logo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="../img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"/><span class="sr-only">Universal - go to homepage</span></a>
+            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
+            <div id="navigation" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Nosotros <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a th:href="@{/acerca-de-nosotros}" class="nav-link">Qui&eacute;nes somos</a></li>
+                    <li class="dropdown-item"><a th:href="@{/politica-de-calidad}" class="nav-link">Pol&iacute;tica de calidad</a></li>
+                    <!--  li class="dropdown-item"><a th:href="@{/certificaciones}" class="nav-link">Certificaciones</a></li-->
+                    <li class="dropdown-item"><a th:href="@{/bolsa-de-trabajo}" class="nav-link">Bolsa de trabajo</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown menu-large"><a th:href="@{/servicios}">Servicios<b class="caret"></b></a></li>
+                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Estudios <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a th:href="@{/estudios/informacion}" class="nav-link">Informaci&oacute;n</a></li>
+                    <li class="dropdown-item"><a th:href="@{/estudios/cotizaciones}" class="nav-link">Cotizaciones</a></li>
+                  </ul>
+                </li>
+                <li th:unless="${#authorization.expression('hasRole(''ROLE_EMPRESA'')')} or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a>Paciente<b class="caret"></b></a></li>
+                <li th:unless="${#authorization.expression('hasRole(''ROLE_PACIENTE'')')}  or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a>Atenci&oacute;n a empresas<b class="caret"></b></a></li>
+                <li class="nav-item dropdown menu-large"><a th:href="@{/pacientes}">Pacientes<b class="caret"></b></a></li>
+                <li class="nav-item dropdown menu-large"><a th:href="@{/atencion-empresas}">Atenci&oacute;n a empresas<b class="caret"></b></a></li>
+                <li class="nav-item dropdown menu-large"><a th:href="@{/comunidad-bemedica}">Comunidad BeM&eacute;dica<b class="caret"></b></a></li>
+                <li class="nav-item dropdown menu-large active"><a th:href="@{/contacto}">Contacto<b class="caret"></b></a></li>
+              </ul>
+            </div>
+            <div id="search" class="collapse clearfix">
+              <form role="search" class="navbar-form">
+                <div class="input-group">
+                  <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Navbar End-->
