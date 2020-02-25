@@ -36,9 +36,9 @@ public class User implements Serializable {
 	@GenericGenerator(name="native",strategy="native")
 	private Long UserId;
 	
-	@Column(name="user_tipo_id")
+	@Column(name="paciente_id")
 	@NotBlank
-	private Long UserTipoId;
+	private Long paciente_id;
 	
 	@Column(name="user_email")
 	@NotBlank
@@ -97,11 +97,11 @@ public class User implements Serializable {
 	}
 
 	public Long getUserTipoId() {
-		return UserTipoId;
+		return paciente_id;
 	}
 
 	public void setUserTipoId(Long UserTipoId) {
-		this.UserTipoId = UserTipoId;
+		this.paciente_id = UserTipoId;
 	}
 
 	public String getUserEmail() {
@@ -181,7 +181,7 @@ public class User implements Serializable {
 		
 		result = prime * result + ((UserId == null)? 0 : UserId.hashCode());
 		result = prime * result + ((UserNombre == null)? 0 : UserNombre.hashCode());
-		result = prime * result + ((UserTipoId == null)? 0 : UserTipoId.hashCode());
+		result = prime * result + ((paciente_id == null)? 0 : paciente_id.hashCode());
 		result = prime * result + ((userName == null)? 0 : userName.hashCode());
 		result = prime * result + ((UserPassword == null)? 0 :UserPassword.hashCode());
 		result = prime * result + ((Tipo == null)? 0 : Tipo.hashCode());
@@ -231,10 +231,10 @@ public class User implements Serializable {
 			return false;
 		} else if (!UserId.equals(other.UserId))
 			return false;
-		if (UserTipoId == null){
-			if (other.UserTipoId != null)
+		if (paciente_id == null){
+			if (other.paciente_id != null)
 			return false;
-		} else if (!UserTipoId.equals(other.UserTipoId))
+		} else if (!paciente_id.equals(other.paciente_id))
 			return  false;
 		if (userName == null){
 			if (other.userName != null)
