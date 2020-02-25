@@ -3457,8 +3457,8 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .badge-primary {
-  color: #111;
-  background-color: #4fbfa8;
+  color: #fff;
+  background-color: #1eb7bd;
 }
 
 .badge-primary[href]:focus, .badge-primary[href]:hover {
