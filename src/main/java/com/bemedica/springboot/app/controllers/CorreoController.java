@@ -4,9 +4,11 @@ package com.bemedica.springboot.app.controllers;
 import org.thymeleaf.context.Context;
 
 import java.awt.Color;
+import java.io.File;
 
 import org.json.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,14 +68,16 @@ public class CorreoController {
 	    context.setVariable("nombre", nombre);
 	    context.setVariable("precio", precio);
 	    context.setVariable("indicaciones", indicaciones);
-        
+	    
 	  //Se bautiza el archivo jsjs
-	    String DEST = "c:/temp/CotizacionDeEstudios.pdf";
+	    String DEST = "pdf_media/CotizacionDeEstudios.pdf";
 	    
 	    PDFMain(jsonArray, monto, DEST);
-	    
-        EmailStatus emailStatus = emailHtmlSender.send(correo, "Cotización de estudios", "email/enviar", context);
-        
+	    	    
+	    FileSystemResource archivo = new FileSystemResource(new File(DEST));
+	    context.setVariable("pdfxd", archivo);
+	        
+        EmailStatus emailStatus = emailHtmlSender.send(correo, "Cotización de estudios", "email/enviar", context, DEST);
         return "index";
 
     }

@@ -198,16 +198,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Introducir un correo</label>
-                                            <input onKeyPress="return validar(event)" required type="email" class="form-control" id="email_envio" placeholder="bemedica@correo.com">
+                                            <input required type="email" class="form-control" id="email_envio" name="email_envio" placeholder="bemedica@correo.com">
                                         </div>
-                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary" onclick="Guardar()" id="boton_bloqueable">Enviar</button>
+                                    <button type="button" class="btn btn-primary" disabled onclick="Guardar()" id="boton_bloqueable">Enviar</button>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@ package com.bemedica.springboot.app.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -19,21 +20,29 @@ public class EmailService {
 	    @Autowired
 	    private JavaMailSender javaMailSender;
 	 
-	    public EmailStatus sendPlainText(String to, String subject, String text) {
-	        return sendM(to, subject, text, false);
+	    public EmailStatus sendPlainText(String to, String subject, String text, String ruta) {
+	        return sendM(to, subject, text, false, ruta);
 	    }
 	 
-	    public EmailStatus sendHtml(String to, String subject, String htmlBody) {
-	        return sendM(to, subject, htmlBody, true);
+	    public EmailStatus sendHtml(String to, String subject, String htmlBody, String ruta) {
+	        return sendM(to, subject, htmlBody, true, ruta);
 	    }
 	 
-	    private EmailStatus sendM(String to, String subject, String text, Boolean isHtml) {
+	    private EmailStatus sendM(String to, String subject, String text, Boolean isHtml, String ruta) {
 	        try {
+	        	
 	            MimeMessage mail = javaMailSender.createMimeMessage();
 	            MimeMessageHelper helper = new MimeMessageHelper(mail, true);
 	            helper.setTo(to);
+	            helper.setFrom("Bemedica");
 	            helper.setSubject(subject);
 	            helper.setText(text, isHtml);
+	            
+	            //Attacht
+	            FileSystemResource file = new FileSystemResource(ruta);
+	    		helper.addAttachment("CotizacionDeEstudios.pdf", file);
+	            
+	            
 	            javaMailSender.send(mail);
 	            LOGGER.info("Send email '{}' to: {}", subject, to);
 	            return new EmailStatus(to, subject, text).success();

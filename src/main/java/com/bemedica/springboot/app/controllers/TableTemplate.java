@@ -26,7 +26,7 @@ import com.lowagie.text.pdf.PdfWriter;
 
 public class TableTemplate 
 { 
-	public static final String IMG = "c:/temp/logo.png";
+	public static final String IMG = "pdf_media/logo.png";
 	
     public static void main(String[] args) throws IOException, DocumentException 
     {
@@ -80,9 +80,10 @@ public class TableTemplate
         table.setWidthPercentage(90);
         
         //Fuentes
-        Font HeadFont = FontFactory.getFont("Times Roman", 12, Color.BLACK);
+        Font HeadFont = FontFactory.getFont("Times Roman", 12, Color.WHITE);
         Font nomFont = FontFactory.getFont("Times Roman", 9, Color.BLACK);
         Font preFont = FontFactory.getFont(FontFactory.COURIER_BOLD, 10, Color.BLACK);
+        Font montoFont = FontFactory.getFont(FontFactory.COURIER_BOLD, 10, Color.WHITE);
         Font infoFont = FontFactory.getFont("Times Roman", 8, Color.BLACK);
         float altura = 30;
 	    
@@ -91,28 +92,39 @@ public class TableTemplate
         img.setAbsolutePosition(40, 775);
         img.scaleToFit(150, 150);
         document.add(img);
-        
+
+		document.add(Chunk.NEWLINE);
+		
         //Cabezeros
-        Color color = new Color(152, 213, 213, 70);
+        Color color = new Color(32 ,80 ,129);
+        Color colorfooter = new Color(255 ,255 ,255);
 	    Paragraph nomHead = new Paragraph("Nombre", HeadFont);
         PdfPCell nomHeadCell = new PdfPCell(nomHead);
-        nomHeadCell.setColspan(3);
+        nomHeadCell.setColspan(4);
         nomHeadCell.setBorder(PdfPCell.NO_BORDER);
         nomHeadCell.setBackgroundColor(color);
         nomHeadCell.setFixedHeight(altura);
         nomHeadCell.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(nomHeadCell);
-        Paragraph canHead = new Paragraph("Cantidad", HeadFont);
+        Paragraph preHead = new Paragraph("Precio", HeadFont);
+        PdfPCell preHeadCell = new PdfPCell(preHead);
+        preHeadCell.setColspan(2);
+        preHeadCell.setBorder(PdfPCell.NO_BORDER);
+        preHeadCell.setBackgroundColor(color);
+        preHeadCell.setFixedHeight(altura);
+        preHeadCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(preHeadCell);
+        /*Paragraph canHead = new Paragraph("Cantidad", HeadFont);
         PdfPCell canHeadCell = new PdfPCell(canHead);
         canHeadCell.setColspan(2);
         canHeadCell.setBorder(PdfPCell.NO_BORDER);
         canHeadCell.setBackgroundColor(color);
         canHeadCell.setFixedHeight(altura);
         canHeadCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-        table.addCell(canHeadCell);
+        table.addCell(canHeadCell);*/
         Paragraph infoHead = new Paragraph("Indicaciones", HeadFont);
         PdfPCell infoHeadCell = new PdfPCell(infoHead);
-        infoHeadCell.setColspan(5);
+        infoHeadCell.setColspan(4);
         infoHeadCell.setBorder(PdfPCell.NO_BORDER);
         infoHeadCell.setBackgroundColor(color);
         infoHeadCell.setFixedHeight(altura);
@@ -126,7 +138,7 @@ public class TableTemplate
 			
 			if(i % 2 == 0)
 			{
-				col = new Color(32, 81, 129);
+				col = new Color(30,183,189);
 			}
 			else
 			{
@@ -140,18 +152,28 @@ public class TableTemplate
 	        nomCell.setBackgroundColor(col);
 	        nomCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 	        nomCell.setFixedHeight(altura);
-	        nomCell.setColspan(3);
+	        nomCell.setColspan(4);
 	        table.addCell(nomCell);
 	        
 	        //Precio
-	        Paragraph can = new Paragraph(String.valueOf(object.getInt("can")), preFont);
+	        Paragraph pre = new Paragraph(String.valueOf("$"+ object.getInt("precio")+".00"), preFont);
+	        PdfPCell preCell = new PdfPCell(pre);
+	        preCell.setBorder(PdfPCell.NO_BORDER);
+	        preCell.setBackgroundColor(col);
+	        preCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        preCell.setFixedHeight(altura);
+	        preCell.setColspan(2);
+	        table.addCell(preCell);
+	        
+	      //Cantidad
+	        /*Paragraph can = new Paragraph(String.valueOf(object.getInt("can")), preFont);
 	        PdfPCell canCell = new PdfPCell(can);
 	        canCell.setBorder(PdfPCell.NO_BORDER);
 	        canCell.setBackgroundColor(col);
 	        canCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 	        canCell.setFixedHeight(altura);
 	        canCell.setColspan(2);
-	        table.addCell(canCell);
+	        table.addCell(canCell);*/
 	        
 	        //Indicaciones
 	        Paragraph info = new Paragraph(object.getString("info"), infoFont);
@@ -160,11 +182,21 @@ public class TableTemplate
 	        infoCell.setBackgroundColor(col);
 	        infoCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 	        infoCell.setFixedHeight(altura);
-	        infoCell.setColspan(5);
+	        infoCell.setColspan(4);
 	        table.addCell(infoCell);
 		}
 		
-        
+		
+		 Paragraph footerHead = new Paragraph("Total: $" + monto + ".00", montoFont);
+	        PdfPCell footerHeadCell = new PdfPCell(footerHead);
+	        footerHeadCell.setColspan(10);
+	        footerHeadCell.setBorder(PdfPCell.NO_BORDER);
+	        footerHeadCell.setBackgroundColor(color);
+	        footerHeadCell.setFixedHeight(altura);
+	        footerHeadCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+	        table.addCell(footerHeadCell);
+	        
+	        
 		document.add(table);
 		document.add(Chunk.NEWLINE);
 		document.add(Chunk.NEWLINE);

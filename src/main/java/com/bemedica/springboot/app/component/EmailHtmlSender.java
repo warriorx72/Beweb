@@ -16,8 +16,8 @@ public class EmailHtmlSender {
     @Autowired
     private TemplateEngine templateEngine;
  
-    public EmailStatus send(String to, String subject, String templateName, Context context) {
+    public EmailStatus send(String to, String subject, String templateName, Context context, String ruta) {
         String body = templateEngine.process(templateName, context);
-        return emailSender.sendHtml(to, subject, body);
+        return emailSender.sendHtml(to, subject, body, ruta);
     }
 }
