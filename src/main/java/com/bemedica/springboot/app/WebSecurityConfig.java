@@ -25,21 +25,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers(resources).permitAll()  
         .antMatchers("/","/login","/index","/comunidad-bemedica","/estudios/cotizaciones",
         		"/acerca-de-nosotros","/contacto","/bolsa-de-trabajo",
-        		"/politica-de-calidad","/certificaciones","/estudios/informacion","/servicios","/enviar_cotizacion","/pacientes","/atencion-empresas").permitAll()
+        		"/politica-de-calidad","/certificaciones","/estudios/informacion","/servicios","/enviar_cotizacion","/pacientes").permitAll()
         
         
-        .antMatchers("/resultados/paciente").access("hasRole('ROLE_PACIENTE')")
+        .antMatchers("/resultados/paciente/{id}").access("hasRole('PACIENTE')")
         
        
-        .antMatchers("/resultados/empleados","/empleados").access("hasRole('ROLE_EMPRESA')")
+        .antMatchers("/resultados/empleados","/empleados").access("hasRole('EMPRESA')")
         
             .anyRequest().authenticated()
             .and()
         .formLogin()
             .loginPage("/login")
             .permitAll()
-            .defaultSuccessUrl("/")
-            .failureUrl("/login?error=true")
+            .defaultSuccessUrl("/index")
+            .failureUrl("/login?error")
             .usernameParameter("username")
             .passwordParameter("password")
             .and()

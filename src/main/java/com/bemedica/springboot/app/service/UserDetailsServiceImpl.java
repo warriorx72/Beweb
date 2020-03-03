@@ -25,6 +25,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		
+		
 
 		com.bemedica.springboot.app.models.entity.User appUser = repository.findByUserName(username).orElseThrow(() -> new UsernameNotFoundException("Login Username Invalido."));
 
@@ -41,15 +44,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 		
 				Set grantList = new HashSet();
-				System.out.println("AAAAAAAAAAAAA:" +  grantList);
 				for(Role role: appUser.getRoles()) {
 					GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getDescription());
-					System.out.println("QQQQQQQQQQQQQQ:" +  grantedAuthority);
 		            grantList.add(grantedAuthority); 
 				}
-				System.out.println("rrrrrrrrrrr:" +  grantList);
 				
 				UserDetails user = (UserDetails) new User(username, appUser.getUserPassword(),grantList);
+				System.out.println(user);
+				
 				return user;
 	}
 	

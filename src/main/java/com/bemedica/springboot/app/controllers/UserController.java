@@ -1,6 +1,9 @@
 package com.bemedica.springboot.app.controllers;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,14 +19,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bemedica.springboot.app.service.UserService;
+
 import com.bemedica.springboot.app.models.entity.User;
 import com.bemedica.springboot.app.repository.UserRepository;
 
 @Controller
 public class UserController {
 
-	@Autowired // hace una inyeccion y de ahi obtenr set and ge lo que se nececita
+	@Autowired 
+	
 	UserService userService;
+	
+	
+
+	
+	
 	@Autowired
 	UserRepository repository;
 	
@@ -33,6 +43,7 @@ public class UserController {
 		
 		model.addAttribute("signup",true);
 		model.addAttribute("userForm", new User());
+	
 		
 		return "/index";
 	}
@@ -63,12 +74,16 @@ public class UserController {
 				return "user-form/user-signup";
 			}		
 		}//End_else
+		
+	
 		return "/index";
+		
+	
 	}//End
 	
 	@GetMapping({"/","/index"})
-	public String index(Model model,HttpServletRequest request ) throws Exception {
-		
+	public String index(Model model,HttpServletRequest request) throws Exception {
+
 		model.addAttribute("user", userService.getSession(request));
 		
 		return "/index";
@@ -109,6 +124,18 @@ public class UserController {
 		model.addAttribute("userList", userService.getAllUsers());
 		return "index";
 	}//End
+	
+
+
+	public long UserSucId(HttpServletRequest request,UserService userService) {
+		 List<String> words = Arrays.asList(request.getUserPrincipal().toString().split(" "));
+		///System.out.println(words);
+		System.out.println(words.get(30));
+
+
+		return 2l;
+	}
+	
 	
 	
 	

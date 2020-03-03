@@ -20,10 +20,9 @@
                     <li class="dropdown-item"><a th:href="@{/estudios/cotizaciones}" class="nav-link">Cotizaciones</a></li>
                   </ul>
                 </li>
-                <li th:unless="${#authorization.expression('hasRole(''ROLE_EMPRESA'')')} or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a>Paciente<b class="caret"></b></a></li>
-                <li th:unless="${#authorization.expression('hasRole(''ROLE_PACIENTE'')')}  or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a>Atenci&oacute;n a empresas<b class="caret"></b></a></li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/pacientes}">Pacientes<b class="caret"></b></a></li>
-                <li class="nav-item dropdown menu-large"><a th:href="@{/atencion-empresas}">Atenci&oacute;n a empresas<b class="caret"></b></a></li>
+                <li th:unless="${#authorization.expression('hasRole(''ROLE_EMPRESA'')')} or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a th:href="@{'resultados/paciente/'+${user.getUserTipoId()}}">Paciente<b class="caret"></b></a></li>
+                <li th:unless="${#authorization.expression('hasRole(''PACIENTE'')')}  or !${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown menu-large"><a>Atenci&oacute;n a empresas<b class="caret"></b></a></li>
+               
                 <li class="nav-item dropdown menu-large"><a th:href="@{/comunidad-bemedica}">Comunidad BeM&eacute;dica<b class="caret"></b></a></li>
                 <li class="nav-item dropdown menu-large"><a th:href="@{/contacto}">Contacto<b class="caret"></b></a></li>
               </ul>

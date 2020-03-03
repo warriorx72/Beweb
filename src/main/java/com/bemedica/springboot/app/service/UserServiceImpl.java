@@ -90,12 +90,13 @@ public class UserServiceImpl implements UserService {
 			{
 				System.out.println("Hay Sesion");
 				u = repository.findByUserName(request.getUserPrincipal().getName().toString()).orElseThrow(() -> new UsernameNotFoundException("Login Username Invalido."));
+				System.out.println(u.getTipo());
+				System.out.println(u.getRoles());
 			}
-			
 		}
 		catch(Exception e) 
 		{
-			System.out.println("No hay Sesion");
+			System.out.println("No hay Sesion: " + e);
 			u.setUserName("No_Session");
 			u.setUserNombre("No_Session");
 		}
