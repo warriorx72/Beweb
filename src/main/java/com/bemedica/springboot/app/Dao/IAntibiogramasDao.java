@@ -11,6 +11,8 @@ public interface IAntibiogramasDao {
 		
 		public void save (Antibiogramas perfiles);
 		
+		
+		
 		public Antibiogramas findOne (Long id );
 		
 		public void delete (Long id);

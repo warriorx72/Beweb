@@ -18,6 +18,7 @@ public class ResultadoPacienteDaoImpl implements IResultadoPacienteDao {
 	
 	
 	
+	
 	@PersistenceContext
 	private EntityManager em;
 	

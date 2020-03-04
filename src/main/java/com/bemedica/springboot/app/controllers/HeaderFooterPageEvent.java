@@ -9,6 +9,7 @@ public class HeaderFooterPageEvent extends PdfPageEventHelper {
     String fecha = null;
     String medico = null;
     String pacienten = null;
+    
     String folio= null;
     String edad= null;
     String sexo= null;

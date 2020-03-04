@@ -23,6 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 ///@SecondaryTables({
    /// @SecondaryTable(name="persona", pkJoinColumns={
       //  @PrimaryKeyJoinColumn(name="direccion_id", referencedColumnName="direccion_id") })
+
 //})
 public class Orden implements Serializable {
 

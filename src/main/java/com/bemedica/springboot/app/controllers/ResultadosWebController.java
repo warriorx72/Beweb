@@ -49,6 +49,7 @@ public class ResultadosWebController {
 	@Qualifier("ResultadosDaoJPA")
 	private IResultadosWebDao ResultadosDao;
 	
+	
 	@Autowired
 	private IAntibiogramasDao AntibiogramasDao;
 	

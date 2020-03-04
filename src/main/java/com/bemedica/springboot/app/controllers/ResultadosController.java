@@ -15,6 +15,7 @@ public class ResultadosController {
 	@Autowired
 	UserService userService;
 	
+	
 	@GetMapping(value="/resultados/paciente")
 	public String paciente(Model model ,HttpServletRequest request) throws Exception{
 	model.addAttribute("user", userService.getSession(request));

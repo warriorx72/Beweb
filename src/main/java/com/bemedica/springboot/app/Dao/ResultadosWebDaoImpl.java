@@ -16,6 +16,7 @@ public class ResultadosWebDaoImpl implements IResultadosWebDao {
 	private EntityManager em;
 
 	@SuppressWarnings("unchecked")
+	
 	@Transactional(readOnly=true)
 	@Override
 	public List<Resultados> findAll(Long id) {

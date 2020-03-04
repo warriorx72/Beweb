@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name="antibiogramas")
 public class Antibiogramas implements Serializable{
 	
+	
 	/**
 	 * 
 	 */

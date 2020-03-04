@@ -10,5 +10,6 @@ public interface IResultadoPacienteDao {
 	
 
 	public List<Orden> findResul(int id);
+	
 
 }

@@ -10,6 +10,7 @@ public List<Resultados> findAll( Long id );
 	
 	public void save (Resultados resultados);
 	
+	
 	public Resultados findOne (Long id );
 	
 	public void delete (Long id);

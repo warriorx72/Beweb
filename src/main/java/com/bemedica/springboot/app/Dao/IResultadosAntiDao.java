@@ -9,6 +9,7 @@ public interface IResultadosAntiDao {
 	
 	public void save (ResultadosAnti resultados);
 	
+	
 	public ResultadosAnti findOne (Long id );
 	
 	public void delete (Long id);
