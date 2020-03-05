@@ -30,7 +30,7 @@ public class ResultadoPacienteDaoImpl implements IResultadoPacienteDao {
 	@Override
 	public java.util.List<Orden> findResul(int id) {
 		
-		return em.createQuery("SELECT ordenFolio, ordenFecha, monto FROM Orden WHERE paciente_id="+id).getResultList();
+		return em.createQuery("SELECT  ordenFolio, ordenFecha, monto, orden_id FROM Orden WHERE paciente_id="+id).getResultList();
 	}
 
 }

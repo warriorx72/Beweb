@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+
     <!-- Google fonts - Roboto-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
     <!-- Bootstrap Select-->
@@ -18,6 +19,9 @@
     <!-- owl carousel-->
     <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
     <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
+
+
+   <link rel="stylesheet" href="css/wa.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
@@ -29,24 +33,30 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=2215216116&text=Bienvenidos%20a%20Bemedica" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
     <div id="all">
       <!-- Top bar-->
       <div th:include="nav.html" th:remove="tag">
-      
+
       </div>
       <!-- Top bar end-->
       <!-- Top bar-->
       <div th:include="modal-inicio-sesion.html" th:remove="tag">
-      
+
       </div>
       <!-- Top bar end-->
-     
+
       <!-- Top bar-->
       <div th:include="header.html" th:remove="tag">
-      
+
       </div>
       <!-- Top bar end-->
-      
+
       <section style="background: url('img/photogrid1.jpg') center center repeat; background-size: cover;" class="bar background-white relative-positioned">
         <div class="container">
           <!-- Carousel Start-->
@@ -257,7 +267,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="get-it">
         <div class="container">
             <div class="row">

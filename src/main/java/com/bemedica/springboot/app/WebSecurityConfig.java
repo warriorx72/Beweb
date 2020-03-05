@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         		"/politica-de-calidad","/certificaciones","/estudios/informacion","/servicios","/enviar_cotizacion","/pacientes").permitAll()
         
         
-        .antMatchers("/resultados/paciente/{id}").access("hasRole('PACIENTE')")
+        .antMatchers("/resultados/paciente/{id}","descargar_resultados/{id}").access("hasRole('PACIENTE')")
         
        
         .antMatchers("/resultados/empleados","/empleados").access("hasRole('EMPRESA')")
