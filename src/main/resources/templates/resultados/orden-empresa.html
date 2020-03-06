@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Atenci&oacute;n a empresas | Bem&eacute;dica</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<!-- Bootstrap CSS-->
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css"
+	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+<!-- Font Awesome CSS-->
+<link rel="stylesheet"
+	href="../vendor/font-awesome/css/font-awesome.min.css"
+	th:href="@{/vendor/font-awesome/css/font-awesome.min.css}">
+<!-- Google fonts - Roboto-->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+<!-- Bootstrap Select-->
+<link rel="stylesheet"
+	href="../vendor/bootstrap-select/css/bootstrap-select.min.css"
+	th:href="@{/vendor/vendor/bootstrap-select/css/bootstrap-select.min.css}">
+<!-- owl carousel-->
+<link rel="stylesheet"
+	href="../vendor/owl.carousel/assets/owl.carousel.css"
+	th:href="@{/vendor/owl.carousel/assets/owl.carousel.css}">
+<link rel="stylesheet"
+	href="../vendor/owl.carousel/assets/owl.theme.default.css"
+	th:href="@{/vendor/owl.carousel/assets/owl.theme.default.css}">
+<!-- theme stylesheet-->
+<link rel="stylesheet" href="../css/style.default.css"
+	id="theme-stylesheet" th:href="@{/css/style.default.css}"
+	th:id="@{theme-stylesheet} ">
+<!-- Custom stylesheet - for your changes-->
+<link rel="stylesheet" href="../css/custom.css"
+	th:href="@{/css/custom.css}">
+<!-- Favicon and apple touch icons-->
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon"
+	th:href="@{/img/favicon.ico}" th:type="@{image/x-icon}">
+<!-- Tweaks for older IEs-->
+<!--[if lt IE 9]>
+    <script src="../https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<body>
+	<div id="all">
+		<!-- Top bar-->
+		<div th:include="nav.html" th:remove="tag"></div>
+		<!-- Top bar end-->
+		<!-- Top bar-->
+		<div th:include="modal-inicio-sesion.html" th:remove="tag"></div>
+		<!-- Top bar end-->
+
+		<!-- Top bar-->
+		<div th:include="header.html" th:remove="tag"></div>
+		<!-- Top bar end-->
+
+		<div id="heading-breadcrumbs">
+			<div class="container">
+				<div class="row d-flex align-items-center flex-wrap">
+					<div class="col-md-7">
+						<h1 class="h2">resultado de empresas</h1>
+					</div>
+					<div class="col-md-5">
+						<ul class="breadcrumb d-flex justify-content-end">
+							<li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+							<li class="breadcrumb-item active">resultados de empresas</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="contact" class="container">
+				<section class="bar">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading">
+								<a data-toggle="modal" data-target="#formFacturacion"
+									class="btn btn-danger" style="color: #fff">Facturaci&oacute;n
+									<i class="fa fa-list-alt"></i>
+								</a>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="formFacturacion" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalLongTitle"
+								aria-hidden="true">
+								<div class="modal-dialog modal-lg modal-dialog-centered"
+									role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLongTitle">Datos
+												para la facturaci&oacute;n</h5>
+											<button type="button" class="close" data-dismiss="modal"
+												aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<form class="needs-validation" novalidate>
+											<div class="modal-body">
+												<small class="form-text"
+													style="color: #dc3545; margin-bottom: 10px;">*Obligatorio</small>
+												<h5 class="modal-title" id="exampleModalLongTitle"
+													style="margin-bottom: 10px; margin-top: 10px;">Datos
+													generales</h5>
+												<div class="row">
+													<div class="col">
+														<label style="font-size: 13px;">Nombre *</label> <input
+															type="text" required class="form-control"
+															placeholder="Jose"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El nombre es
+															obligatorio
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Apellido Paterno *</label>
+														<input type="text" required class="form-control"
+															placeholder="Martinez"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El apellido
+															paterno es obligatorio
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Apellido Materno *</label>
+														<input type="text" required class="form-control"
+															placeholder="Gonzales"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El apellido
+															materno es obligatorio
+														</div>
+													</div>
+												</div>
+												<div class="row" style="margin-top: 10px;">
+													<div class="col">
+														<label style="font-size: 13px;">Correo *</label> <input
+															type="email" id="correoFacturacion" required
+															class="form-control" placeholder="bemedica@correo.com"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback" id="correoFacturacionDiv">
+															<span id="correoFacturacionDiv"></span> <i
+																class="fa fa-exclamation-circle"></i> El correo es
+															obligatorio
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Tel&eacute;fono *</label>
+														<input type="text" id='yourphone' required
+															class="form-control" placeholder="(222) 212-1212"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El
+															tel&eacute;fono es obligatorio
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">RFC *</label> <input
+															type="text" id="rfcFacturacion" required
+															class="form-control" placeholder="VECJ880326HK"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<span id="rfcFacturacionDiv"></span> <i
+																class="fa fa-exclamation-circle"></i> El RFC es
+															obligatorio
+														</div>
+													</div>
+												</div>
+												<br>
+												<h5 class="modal-title" id="exampleModalLongTitle"
+													style="margin-bottom: 10px;">Direcci&oacute;n</h5>
+												<div class="row">
+													<div class="col">
+														<label style="font-size: 13px;">Calle *</label> <input
+															type="text" required class="form-control"
+															placeholder="Calle Morelos entre Av.1 y 3"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> La calle es
+															obligatoria
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Colonia *</label> <input
+															type="text" required class="form-control"
+															placeholder="Centro"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> La colonia es
+															obligatoria
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">C&oacute;digo
+															postal *</label> <input type="number" required id="cpFacturacion"
+															onkeypress="solonumeros(event);" class="form-control"
+															placeholder="98323"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<span id="cpFacturacionDiv"></span> <i
+																class="fa fa-exclamation-circle"></i> El c&oacute;digo
+															postal es obligatoria
+														</div>
+													</div>
+												</div>
+												<br>
+												<div class="row">
+													<div class="col">
+														<label style="font-size: 13px;">Municipio *</label> <input
+															type="text" required class="form-control"
+															placeholder="Panzacola"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El municipio es
+															obligatorio
+														</div>
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Estado *</label> <input
+															type="text" required class="form-control"
+															placeholder="Tlaxcala"
+															style="font-size: 13px; color: #495057">
+														<div class="invalid-feedback">
+															<i class="fa fa-exclamation-circle"></i> El estado es
+															obligatorio
+														</div>
+													</div>
+												</div>
+												<br>
+												<h5 class="modal-title" id="exampleModalLongTitle"
+													style="margin-bottom: 10px;">Datos de la empresa
+													(opcional)</h5>
+												<div class="row">
+													<div class="col">
+														<label style="font-size: 13px;">Empresa</label> <input
+															type="text" class="form-control"
+															placeholder="Bem&eacute;dica"
+															style="font-size: 13px; color: #495057">
+													</div>
+													<div class="col">
+														<label style="font-size: 13px;">Raz&oacute;n
+															social</label> <input type="text" class="form-control"
+															placeholder="S.A. de C.V."
+															style="font-size: 13px; color: #495057">
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger mr-auto"
+													data-dismiss="modal">Cerrar</button>
+												<button type="submit" class="btn btn-primary">Solicitar
+													facturaci&oacute;n</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<table id="resultadosPaciente" class="table" style="width: 100%">
+								<thead class="thead-dark">
+									<tr>
+										<th>Orden</th>
+										<th>Persona</th>
+										<th>Fecha</th>
+										<th>Monto</th> 
+										<th>Imprimir</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="resultado: ${vistaordenes}">
+										<td th:text="${resultado[0]}"></td>
+										<td th:text="${resultado[1]}"></td>
+										<td th:text="${resultado[2]}"></td>
+										<td th:text="${resultado[3]}"></td>
+										<td><a th:href="@{/descargar_resultados/}+ ${resultado[4]}" class="btn btn-danger"><i class="fa fa-print" style="color:#fff"></i></a></td>
+									</tr>
+
+
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Orden</th>
+										<th>Persona</th>
+										<th>Fecha</th>
+										<th>Monto</th>
+										<th>Imprimir</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="get-it">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 text-center p-3">
+						<h3>¿Necesitas una cotizaci&oacute;n?</h3>
+					</div>
+					<div class="col-lg-4 text-center p-3">
+						<a th:href="@{/estudios/cotizaciones}"
+							class="btn btn-template-outlined-white">Da click aqu&iacute;</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- FOOTER -->
+		<footer class="main-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<h4 class="h6">Dudas</h4>
+						<ul class="list-unstyled footer-blog-list">
+							<li class="d-flex align-items-center">
+								<p>Preguntas frecuentes</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Nos interesa tu opini&oacute;n</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Convenios</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Certificaciones</p>
+							</li>
+						</ul>
+						<hr class="d-block d-lg-none">
+					</div>
+					<div class="col-lg-3">
+						<h4 class="h6">Beneficios</h4>
+						<ul class="list-unstyled footer-blog-list">
+							<li class="d-flex align-items-center">
+								<p>Directorio M&eacute;dico</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Resultados en linea</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Descuentos</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Facturaci&oacute;n</p>
+							</li>
+						</ul>
+						<hr class="d-block d-lg-none">
+					</div>
+					<div class="col-lg-3">
+						<h4 class="h6">Servicios</h4>
+						<ul class="list-unstyled footer-blog-list">
+							<li class="d-flex align-items-center">
+								<p>Toma a domicilio</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Pol&iacute;tica de calidad</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Bolsa de trabajo</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>Contacto</p>
+							</li>
+						</ul>
+						<hr class="d-block d-lg-none">
+					</div>
+
+					<div class="col-lg-3">
+						<h4 class="h6">Redes sociales</h4>
+						<ul class="list-unstyled footer-blog-list">
+							<li class="d-flex align-items-center">
+								<p>
+									<i class="fa fa-facebook"></i> Facebook
+								</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>
+									<i class="fa fa-whatsapp"></i> WhatsApp
+								</p>
+							</li>
+							<li class="d-flex align-items-center">
+								<p>
+									<i class="fa fa-twitter"></i> Twitter
+								</p>
+							</li>
+						</ul>
+						<hr class="d-block d-lg-none">
+					</div>
+				</div>
+			</div>
+			<div class="copyrights">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 text-center-md">
+							<p>D.R. &copy; Copyright 2020. BeM&eacute;dica. S.A. de C.V.</p>
+						</div>
+						<div class="col-lg-8 text-right text-center-md">
+							<p>
+								Template design by <a
+									href="https://bootstrapious.com/p/big-bootstrap-tutorial">Bootstrapious
+								</a>& <a href="https://fity.cz/ostrava">Fity</a>
+							</p>
+							<!-- Please do not remove the backlink to us unless you purchase the Attribution-free License at https://bootstrapious.com/donate. Thank you. -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- Javascript files-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/popper.js/umd/popper.min.js">
+		
+	</script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/jquery.cookie/jquery.cookie.js">
+		
+	</script>
+	<script src="vendor/waypoints/lib/jquery.waypoints.min.js">
+		
+	</script>
+	<script src="vendor/jquery.counterup/jquery.counterup.min.js">
+		
+	</script>
+	<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
+	<script src="js/jquery.parallax-1.1.3.js"></script>
+	<script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
+	<script src="js/front.js"></script>
+</body>
+</html>
