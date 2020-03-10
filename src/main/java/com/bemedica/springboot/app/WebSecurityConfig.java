@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers(resources).permitAll()  
         .antMatchers("/","/login","/index","/comunidad-bemedica","/estudios/cotizaciones",
         		"/acerca-de-nosotros","/contacto","/bolsa-de-trabajo",
-        		"/politica-de-calidad","/certificaciones","/estudios/informacion","/servicios","/enviar_cotizacion","/pacientes").permitAll()
+        		"/politica-de-calidad","/certificaciones","/estudios/informacion","/servicios","/enviar_cotizacion","/pacientes", "/atencion-empresas").permitAll()
         
         
         .antMatchers("/resultados/paciente/{id}","descargar_resultados/{id}").access("hasRole('PACIENTE')")

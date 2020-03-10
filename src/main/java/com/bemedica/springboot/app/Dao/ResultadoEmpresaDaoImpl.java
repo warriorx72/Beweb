@@ -28,10 +28,13 @@ public class ResultadoEmpresaDaoImpl implements IResultadoEmpresaDao {
 	@SuppressWarnings("unchecked")
 	public List<Orden> findOrden(int id, int id2) {
 		// TODO Auto-generated method stub
-		return em.createNativeQuery("select orden_folio, paciente_id, orden_fecha, monto, orden_id from \r\n"
-				+ "(select o.orden_folio , pv.paciente_id, o.orden_id, o.orden_fecha, o.monto, paciente_id_tex AS Folio, CONCAT(persona_nombre, \" \", persona_ap,\" \", persona_am) AS Nombre, persona_tel_casa  \r\n"
-				+ "from paciente_vista as pv\r\n" + "INNER JOIN orden o on pv.paciente_id=o.paciente_id\r\n"
-				+ "where empresa_id = " + id + ") AS pacs\r\n" + "where pacs.paciente_id=" + id2).getResultList();
+		return em.createNativeQuery("select orden_folio, paciente_id, orden_fecha, monto, orden_id from\r\n" + 
+				"				(select o.orden_folio , pv.paciente_id, o.orden_id, o.orden_estatus, o.orden_fecha, o.monto, paciente_id_tex AS Folio, CONCAT(persona_nombre, \" \", persona_ap,\" \", persona_am) AS Nombre, persona_tel_casa\r\n" + 
+				"				from paciente_vista as pv\r\n" + 
+				"				INNER JOIN orden o on pv.paciente_id=o.paciente_id\r\n" + 
+				"				where empresa_id ="+id+") AS pacs\r\n" + 
+				"				where pacs.paciente_id="+id2+"\r\n" + 
+				"				and pacs.orden_estatus = \"Finalizada\"").getResultList();
 	}
 
 }
