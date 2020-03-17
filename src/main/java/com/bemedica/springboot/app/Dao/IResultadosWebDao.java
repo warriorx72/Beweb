@@ -33,7 +33,7 @@ public List<Resultados> findAll( Long id );
 	
 	public void Actualizacion_Orden (Long id );
 	
-	public List <Object []> Resultados (Long id);
+	public List <Object []> Resultados (Long id, Long id2, Long id3);
 	
 	public String NombrePerfil(Long id);
 	

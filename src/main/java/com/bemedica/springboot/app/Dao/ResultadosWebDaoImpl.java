@@ -174,9 +174,9 @@ public class ResultadosWebDaoImpl implements IResultadosWebDao {
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	@Override
-	public List<Object[]> Resultados(Long linea) {
+	public List<Object[]> Resultados(Long linea, Long linea2, Long linea3) {
 		List<Object[]> re = null;
-		re = em.createNativeQuery("{call resultado_web (" + linea + ")}").getResultList();
+		re = em.createNativeQuery("{call resultado_web (" + linea + ","+ linea2 +","+ linea3 +")}").getResultList();
 
 		return re;
 	}

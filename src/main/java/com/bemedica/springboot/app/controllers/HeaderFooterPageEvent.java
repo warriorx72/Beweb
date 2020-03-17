@@ -1,5 +1,6 @@
 package com.bemedica.springboot.app.controllers;
 import java.awt.Color;
+import java.io.IOException;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
@@ -31,13 +32,19 @@ public class HeaderFooterPageEvent extends PdfPageEventHelper {
 
     @Override
     public void onEndPage(PdfWriter writer, Document document) {
-        addHeader(writer);
+        try {
+			addHeader(writer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         addFooter(writer);
     }
 
-    private void addHeader(PdfWriter writer){
+    private void addHeader(PdfWriter writer) throws IOException{
         PdfPTable header = new PdfPTable(4);
         PdfPTable headerNumP = new PdfPTable(1);
+        PdfPTable imagenLogo = new PdfPTable(1);
         Font fuen_1 = new Font(Font.HELVETICA, 9.0f,Font.BOLD,Color.BLACK);
         Font fuen_2 = new Font(Font.HELVETICA, 10.0f,Font.NORMAL,Color.BLACK);
         try {
@@ -46,20 +53,35 @@ public class HeaderFooterPageEvent extends PdfPageEventHelper {
             header.setLockedWidth(true);
             headerNumP.setTotalWidth(527);
             headerNumP.setLockedWidth(true);
+            imagenLogo.setTotalWidth(170);
+            imagenLogo.setLockedWidth(true);
             
+            
+            
+            //Logo     
+            Image imagen = Image.getInstance("C:\\Users\\DTI\\git\\Beweb\\src\\main\\resources\\static\\img\\BeMedicaHorizontal.png");
+            Paragraph parra = new Paragraph();
+            PdfPCell zelda = new PdfPCell(parra);
+            zelda.setHorizontalAlignment(Element.ALIGN_LEFT);
+            zelda.disableBorderSide(Rectangle.BOX);
+            //zelda.setExtraParagraphSpace(1.5f);
+            zelda.setImage(imagen);
+            
+            imagenLogo.addCell(zelda);
+            imagenLogo.writeSelectedRows(0, -1, 30, 800, writer.getDirectContent());
+            
+
+            //Numero de pagina
             Paragraph  pag = new Paragraph(String.format("Pág. %d ", writer.getPageNumber()), new Font(Font.HELVETICA, 8));
-            
             PdfPCell cell_pag = new PdfPCell(pag);
-       		
-       		
        		cell_pag.setHorizontalAlignment(Element.ALIGN_RIGHT);
        		cell_pag.disableBorderSide(Rectangle.BOX);
        		cell_pag.setExtraParagraphSpace(1.5f);
-       		
        		headerNumP.addCell(cell_pag);
             headerNumP.writeSelectedRows(0, -1, 34,800, writer.getDirectContent());
             
-           Paragraph fecha_t = new Paragraph("FECHA:",fuen_1);
+            
+            Paragraph fecha_t = new Paragraph("FECHA:",fuen_1);
     		Paragraph paciente_t = new Paragraph("PACIENTE:",fuen_1);
     		Paragraph medico_t = new Paragraph("MEDICO:",fuen_1);
     		

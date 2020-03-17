@@ -17,13 +17,15 @@
                 			<span class="d-none d-md-inline-block">
                 				Iniciar sesi&oacute;n
                 			</span>
-                	</a>&nbsp;	<!-- hace referencia al usuario registrado -->
-                	<a th:unless="${user.getUserName() == 'No_Session'}"   href="#" data-toggle="modal" data-target="#login-modal" class="login-btn">
+                	</a>&nbsp;	<!-- hace referencia al usuario registrado  -->
+                	
+                	<a th:unless="${user.getUserName() == 'No_Session'}" href="#" data-toggle="modal" data-target="#login-modal" class="login-btn">
                 		<i class="fa fa-user"></i>
-                			<span class="d-none d-md-inline-block" th:text="${user.getUserNombre()}">
+                			<span class="d-none d-md-inline-block" th:text="${user.getUserName()}">
                 				gggcc
                 			</span>
                 	</a>&nbsp;	
+                	
                 	<a th:unless="${user.getUserName() == 'No_Session'}" th:href="@{/logout}"  class="signup-btn">
                 		<i class="fa fa-window-close"></i>
                 			<span class="d-none d-md-inline-block">
